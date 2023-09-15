@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: medusa-postgres
+    image: postgres:15.2
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: medusa
+      POSTGRES_PASSWORD: medusa
+      POSTGRES_DB: medusa
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  redis:
+    container_name: medusa-redis
+    restart: always
+    image: redis
+    ports:
+      - 6389:6379
+
+volumes:
+  postgres:
