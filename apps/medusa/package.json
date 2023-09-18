@@ -28,7 +28,7 @@
     "with-env": "dotenv -e .env --"
   },
   "dependencies": {
-    "@medusajs/admin": "^7.1.0",
+    "@medusajs/admin": "6.0.5",
     "@medusajs/cache-inmemory": "^1.8.8",
     "@medusajs/cache-redis": "^1.8.8",
     "@medusajs/event-bus-local": "^1.9.6",
