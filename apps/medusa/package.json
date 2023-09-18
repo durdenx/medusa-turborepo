@@ -16,7 +16,7 @@
     "dev": "pnpm with-env pnpm build:server && medusa start",
     "start": "pnpm with-env pnpm build && medusa start",
     "start:custom": "pnpm with-env pnpm build && node --preserve-symlinks --trace-warnings index.js",
-    "clean": "pnpm clean:dist && rm -rf .turbo && rm -rf node_modules",
+    "clean": "pnpm clean:dist && ./node_modules/.bin/rimraf .cache && rm -rf .turbo && rm -rf node_modules",
     "clean:dist": "pnpm with-env ./node_modules/.bin/rimraf dist",
     "build": "pnpm with-env pnpm clean:dist && pnpm build:server && pnpm build:admin",
     "build:server": "pnpm with-env pnpm clean:dist && tsc -p tsconfig.json",
