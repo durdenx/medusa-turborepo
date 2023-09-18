@@ -4,6 +4,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "migrate": "turbo run migrate",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo run clean && rm -rf ./node_modules"
   },
