@@ -10,16 +10,9 @@ import { useInfiniteQuery } from "@tanstack/react-query"
 import { useCart } from "medusa-react"
 import React, { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import { ProductCollection } from "@medusajs/medusa"
 
-type CollectionTemplateProps = {
-  collection: {
-    handle: string
-    title: string
-    id: string
-  }
-}
-
-const CollectionTemplate: React.FC<CollectionTemplateProps> = ({
+const CollectionTemplate: React.FC<{ collection: ProductCollection }> = ({
   collection,
 }) => {
   const { cart } = useCart()
@@ -36,8 +29,9 @@ const CollectionTemplate: React.FC<CollectionTemplateProps> = ({
     ({ pageParam }) =>
       getProductsByCollectionHandle({
         pageParam,
-        handle: collection.handle,
+        handle: collection.handle!,
         cartId: cart?.id,
+        currencyCode: cart?.region.currency_code,
       }),
     {
       getNextPageParam: (lastPage) => lastPage.nextPage,
@@ -67,7 +61,7 @@ const CollectionTemplate: React.FC<CollectionTemplateProps> = ({
       <div className="mb-8 text-2xl-semi">
         <h1>{collection.title}</h1>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-4 gap-y-8">
+      <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />
