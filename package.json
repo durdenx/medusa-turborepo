@@ -12,9 +12,9 @@
     "eslint": "^8.48.0",
     "prettier": "^3.0.3",
     "tsconfig": "workspace:*",
-    "turbo": "^1.10.16"
+    "turbo": "^1.11.3"
   },
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@8.14.0",
   "name": "medusa-turborepo",
   "dependencies": {
     "dotenv-cli": "^7.3.0"
